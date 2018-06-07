@@ -18,23 +18,27 @@ def addIp(ipaddr):
             iplist = fp.readlines()
     except Exception as e:
         Log.Error(e)
-
-    with open("ipaddr.atc","a",encoding="utf-8") as fo:
-        if ipaddr not in iplist:
-            fo.write(os.linesep)
-            fo.write(ipaddr)
-
+    try:
+        with open("ipaddr.atc","a",encoding="utf-8") as fo:
+            if ipaddr not in iplist:
+                fo.write(os.linesep)
+                fo.write(ipaddr)
+    except Exception as e:
+        Log.Error(e)
 
 def getIp():
     """
     获取ip地址，便于传输
     :return:
     """
-    with open("ipaddr.atc","r",encoding="utf-8") as fp:
-        iplist = fp.readlines()
-        if iplist:
-            iplist.pop(0)
-            return iplist
+    try:
+        with open("ipaddr.atc","r",encoding="utf-8") as fp:
+            iplist = fp.readlines()
+            if iplist:
+                iplist.pop(0)
+                return iplist
+    except Exception as e:
+        Log.Error(e)
     return None
 
 
