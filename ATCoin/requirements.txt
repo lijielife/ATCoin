@@ -1,0 +1,15 @@
+lmdb
+ecdsa
+base58
+future
+netifaces
+ntplib
+twisted
+ipaddress
+requests
+nose
+setuptools
+pyroute2
+umsgpack
+PyQt5
+

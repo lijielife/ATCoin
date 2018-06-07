@@ -1,0 +1,19 @@
+#some local config
+#部分本地配置，可以根据自己的需求更改，因为某些安全性要求请按照默认文件进行配置
+
+#blockchain config
+#区块链配置信息
+blockversion=1.0
+subsidy=50
+pownum=24
+
+#addr version
+#地址配置信息
+addrversion=01
+
+#miner port ipaddr
+#是否参与挖矿操作
+miner=1
+sport=18506
+server=127.0.0.1
+tport=18056
