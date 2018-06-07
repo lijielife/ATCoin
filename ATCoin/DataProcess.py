@@ -1,6 +1,7 @@
 from ProofOfWork import POW
 from Blockchain import Blockchain
 import os
+import Log
 import Jsonstr
 import Hashsum
 import BClient
@@ -12,8 +13,11 @@ def addIp(ipaddr):
     处理ip地址，维持一个IP表
     """
     iplist = []
-    with open("ipaddr.atc","a",encoding="utf-8") as fp:
-        iplist = fp.readlines()
+    try:
+        with open("ipaddr.atc","r",encoding="utf-8") as fp:
+            iplist = fp.readlines()
+    except Exception as e:
+        Log.Error(e)
 
     with open("ipaddr.atc","a",encoding="utf-8") as fo:
         if ipaddr not in iplist:
