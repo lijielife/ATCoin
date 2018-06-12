@@ -30,7 +30,7 @@
 
 
 使用环境：
-Macbook&Linux,Windows暂时未进行测试
+Macbook&Linux测试可用,Windows暂时未进行测试
 Python3
 
 
