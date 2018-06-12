@@ -44,7 +44,7 @@ class Blockchain():
         mer = None
         tsize = db.dbsize()
         keys = []#存储正在被挖矿的交易
-        if tsize >= 1:
+        if tsize >= 5:
             dtrans = db.rawiter()
             trans = []
             for key,value in dtrans.items():
