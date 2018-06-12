@@ -39,7 +39,6 @@ Python3
 		命令：python3 Server.py
 		标志(终端输出)：Waiting for blocks transmission...
 		     	      Waiting for trans transmission...
-	
 	2.开启钱包客户端
 		命令：python3 coinUI.py
 	        标志：启动钱包界面
