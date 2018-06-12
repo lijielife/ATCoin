@@ -145,11 +145,6 @@ class TranOutput():
         return str(printable)
 
 
-    def CanBeUnlockedWith(self,data):
-        return self.ScriptPubkey == data
-
-
-
     def IsLockedWithKey(self,pubKeyHash):
         return self.PubKeyHash == pubKeyHash
 
@@ -182,10 +177,6 @@ class TranInput():
         printable["Signature"] = self.Signature
         printable["PubKey"] = self.PubKey
         return str(printable)
-
-
-    def CanUnlockOutputWith(self,data):
-        return self.ScriptSig == data
 
 
     def UseKey(self,pubKeyHash):
