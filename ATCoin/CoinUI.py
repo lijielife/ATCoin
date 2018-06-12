@@ -102,9 +102,6 @@ class Ui_MainWindow(QtWidgets.QWidget):
         self.statusBar.setObjectName("statusBar")
         MainWindow.setStatusBar(self.statusBar)
         self.total = Conlmdb().dbsize()
-        with futures.ProcessPoolExecutor() as ececutor:
-            ececutor.submit(BClient.getSize)#显示UI信息
-
         with open("bsize.atc",encoding="utf-8") as fp:
             self.total = int(fp.read())
         self.db = Conlmdb()
@@ -217,4 +214,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+     with futures.ProcessPoolExecutor() as ececutor:
+            ececutor.submit(main)#显示ui信息
+            ececutor.submit(BClient.getSize)#同步区块
