@@ -220,7 +220,7 @@ if __name__ == "__main__":
         executor.submit(Tcom)
         executor.submit(Mine)
         if Conlmdb().dbsize()==0:
-            executor.submit(BClient.main())
+            executor.submit(BClient.main)
 
 
 
