@@ -84,3 +84,12 @@ def main(ID):
     PORT = Utils().tport
     reactor.connectTCP(HOST,PORT,TSClntFactory())
     reactor.run()
+    
+    
+def rmain(ID):
+    """
+    :param ID:交易ID
+    :return: 是否成功发送
+    """
+    main(ID)
+    return end[0]
