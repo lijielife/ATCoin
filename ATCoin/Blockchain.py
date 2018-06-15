@@ -241,14 +241,15 @@ class Blockchain():
             privkey = Wallet().PrivateKey
             stc = self.SignTransaction(data,privkey)
             trandb.put(stc.ID,PickleStr.toStr(stc))
-            TClient.main(stc.ID)
-            if TClient.end[0]:
-                bd = Conlmdb("utxo")
-                while not self.Keys.empty():
-                    bd.delete(self.Keys.get())#更新数据库中的信息
-                return True
-            else:
-                trandb.delete(stc.ID)#删除没有发送成功的交易，主要发生在没有网的时候，保证tranpool中没有无效的交易
+            with futures.ProcessPoolExecutor() as executor:
+                result = executor.submit(TClient.rmain,stc.ID).result()
+                if result:
+                    bd = Conlmdb("utxo")
+                    while not self.Keys.empty():
+                        bd.delete(self.Keys.get())  # 更新数据库中的信息
+                    return True
+                else:
+                    trandb.delete(stc.ID)  # 删除没有发送成功的交易，主要发生在没有网的时候，保证tranpool中没有无效的交易
         return None
 
 
